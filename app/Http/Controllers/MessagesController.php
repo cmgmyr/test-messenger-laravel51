@@ -23,7 +23,7 @@ class MessagesController extends Controller
         $user = User::find(1);
         Auth::login($user);
     }
-    
+
     /**
      * Show all of the message threads to the user.
      *
@@ -120,7 +120,7 @@ class MessagesController extends Controller
 
         // Recipients
         if (Input::has('recipients')) {
-            $thread->addParticipants($input['recipients']);
+            $thread->addParticipant($input['recipients']);
         }
 
         return redirect('messages');
@@ -165,7 +165,7 @@ class MessagesController extends Controller
 
         // Recipients
         if (Input::has('recipients')) {
-            $thread->addParticipants(Input::get('recipients'));
+            $thread->addParticipant(Input::get('recipients'));
         }
 
         return redirect('messages/' . $id);
